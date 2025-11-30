@@ -1,0 +1,39 @@
+
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+bool isSymmetric(int mat[][MAX], int N)
+{
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (mat[i][j] != mat[j][i])
+                return false;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    int N;
+    int mat[MAX][MAX];
+
+    cout << "Enter size of square matrix (N): ";
+    cin >> N;
+
+    cout << "Enter elements of the matrix:\n";
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cin >> mat[i][j];
+        }
+    }
+
+    if (isSymmetric(mat, N))
+        cout << "The matrix is symmetric.\n";
+    else
+        cout << "The matrix is not symmetric.\n";
+
+    return 0;
+}
